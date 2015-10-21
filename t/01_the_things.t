@@ -53,33 +53,36 @@ describe "Array::FIFO" => sub {
 
     };
 
-    describe "adds over max elements" => sub {
-        my $ar;
+    describe "over max elements" => sub {
+        my ($ar, $last);
 
         before each => sub {
             $ar = Array::FIFO->new( max_size => 5 );
-            $ar->add( 3 );
-            $ar->add( 6 );
-            $ar->add( 9 );
-            $ar->add( 12 );
-            $ar->add( 15 );
-            $ar->add( 18 );
+            $ar->add( 4 );
+            $ar->add( 7 );
+            $ar->add( 10 );
+            $ar->add( 13 );
+            $ar->add( 16 );
+            $last = $ar->add( 19 );
         };
 
         it "size is 5" => sub {
             is( $ar->size, 5 );
         };
 
-        it "average is 12" => sub {
-            is( $ar->average, 12 );
+        it "average is 13" => sub {
+            is( $ar->average, 13 );
         };
 
         it "sum is 60" => sub {
-            is( $ar->sum, 60 );
+            is( $ar->sum, 65 );
+        };
+
+        it "lost one returned is 4" => sub {
+            is( $last, 4 );
         };
 
     };
-
 
     describe "no max_size set" => sub {
         my $ar;

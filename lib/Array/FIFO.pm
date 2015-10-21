@@ -124,7 +124,6 @@ has queue => (
 
         my $sum = 0;
         foreach my $q (@{ $self->queue }) {
-            #if (($q =~ /^-?\d+$/) || ($q =~ /^-?\d+\.?\d*$/)) {
             if ($q =~ /^-?\d+\.?\d*$/) {
                 $sum += int($q);
             }

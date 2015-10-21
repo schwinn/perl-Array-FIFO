@@ -2,6 +2,9 @@ package Array::FIFO;
 
 use Moose;
 
+use namespace::autoclean;
+
+
 =head1 NAME
 
 Array::FIFO - Simple FIFO array, with a few convenience methods

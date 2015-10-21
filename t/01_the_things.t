@@ -80,6 +80,34 @@ describe "Array::FIFO" => sub {
 
     };
 
+
+    describe "no max_size set" => sub {
+        my $ar;
+
+        before each => sub {
+            $ar = Array::FIFO->new;
+            $ar->add( 3 );
+            $ar->add( 6 );
+            $ar->add( 9 );
+            $ar->add( 12 );
+            $ar->add( 15 );
+            $ar->add( 18 );
+        };
+
+        it "size is 6" => sub {
+            is( $ar->size, 6 );
+        };
+
+        it "average is 12" => sub {
+            is( $ar->average, 10.5 );
+        };
+
+        it "sum is 63" => sub {
+            is( $ar->sum, 63 );
+        };
+
+    };
+
 };
 
 runtests unless caller;

@@ -110,9 +110,11 @@ has queue => (
     trigger => sub {
         my $self = shift;
 
-        my $array = $self->{queue};
-        while (@{ $array } > $self->{max_size}) {
-            shift @{ $array };
+        if ($self->{max_size} > 0) {
+            my $array = $self->{queue};
+            while (@{ $array } > $self->{max_size}) {
+                shift @{ $array };
+            }
         }
 
         $self->size( scalar @{ $self->queue } );

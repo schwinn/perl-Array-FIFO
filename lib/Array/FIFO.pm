@@ -95,6 +95,7 @@ L<http://www.perlfoundation.org/artistic_license_2_0>
 
 =cut
 
+
 has max_size => ( is => 'rw', isa => 'Int', default => -1 );
 has size => ( is => 'rw', isa => 'Int', default => 0 );
 

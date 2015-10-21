@@ -4,9 +4,8 @@ use Moose;
 
 =head1 NAME
 
-Array::FIFO
+Array::FIFO - Simple FIFO array, with a few convenience methods
 
-=cut
 =head1 SYNOPSIS
 
     my $ar = Array::FIFO->new( max_size => 12 );

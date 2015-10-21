@@ -2,6 +2,9 @@ package Array::FIFO;
 
 use Moose;
 
+
+
+
 has max_size => ( is => 'rw', isa => 'Int', default => -1 );
 has size => ( is => 'rw', isa => 'Int', default => 0 );
 
@@ -44,11 +47,9 @@ has queue => (
 
 has sum => ( is => 'rw', isa => 'Int' );
 has average => ( is => 'rw', isa => 'Num' );
-# trigger => sub { my ( $self, $new, $old ) = @_; $self->abs_average( int( $new ) ); },);
-
-#TODO - expires
 
 
+__PACKAGE__->meta->make_immutable;
 
 1;
 

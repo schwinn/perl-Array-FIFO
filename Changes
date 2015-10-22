@@ -1,4 +1,7 @@
 
+0.05
+    - use List::Util sum0 to add up values
+
 0.04
     - renamed max_size to limit
 

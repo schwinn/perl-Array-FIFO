@@ -1,6 +1,7 @@
 package Array::FIFO;
 
 use Moose;
+use List::Util qw(sum0);
 
 use namespace::autoclean;
 
@@ -122,12 +123,7 @@ has queue => (
 
         my $size = $self->size;
 
-        my $sum = 0;
-        foreach my $q (@{ $self->queue }) {
-            if ($q =~ /^-?\d+\.?\d*$/) {
-                $sum += $q;
-            }
-        }
+        my $sum = sum0( grep /^-?\d+\.?\d*$/, @{ $self->queue } );
 
         $self->sum( $sum );
         if ($sum > 0) {

@@ -1,4 +1,7 @@
 
+0.06 - 2016/10/22
+    - clarify wording in pod
+
 0.05 - 2015/10/22
     - use List::Util sum0 to add up values
     - fix typos and bad DESCRIPTION

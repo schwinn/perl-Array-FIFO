@@ -11,7 +11,7 @@ describe "Array::FIFO" => sub {
         my $ar;
 
         before each => sub {
-            $ar = Array::FIFO->new( max_size => 5 );
+            $ar = Array::FIFO->new( limit => 5 );
             $ar->add( 5 );
         };
 
@@ -33,7 +33,7 @@ describe "Array::FIFO" => sub {
         my $ar;
 
         before each => sub {
-            $ar = Array::FIFO->new( max_size => 5 );
+            $ar = Array::FIFO->new( limit => 5 );
             $ar->add( 3 );
             $ar->add( 6 );
             $ar->add( 9 );
@@ -57,7 +57,7 @@ describe "Array::FIFO" => sub {
         my ($ar, $last);
 
         before each => sub {
-            $ar = Array::FIFO->new( max_size => 5 );
+            $ar = Array::FIFO->new( limit => 5 );
             $ar->add( 4 );
             $ar->add( 7 );
             $ar->add( 10 );
@@ -84,7 +84,7 @@ describe "Array::FIFO" => sub {
 
     };
 
-    describe "no max_size set" => sub {
+    describe "no limit set" => sub {
         my $ar;
 
         before each => sub {

@@ -11,7 +11,7 @@ Array::FIFO - Simple FIFO array, with a few convenience methods
 
 =head1 SYNOPSIS
 
-    my $ar = Array::FIFO->new( max_size => 12 );
+    my $ar = Array::FIFO->new( limit => 12 );
     $ar->add( 20 );
     $ar->add( 18 );
     $ar->add( 22 );
@@ -29,10 +29,10 @@ through an interface provided by a Doppler::Storage::Interface role.
 
 =over 4
 
-=item C<max_size> (optional)
+=item C<limit> (optional)
 
 Numeric value of how large the array is allowd to get.  When it reaches 
-max_size, every item added causes the oldest item to be removed.
+limit, every item added causes the oldest item to be removed.
 
 If no value is passed, there is no max size.
 
@@ -64,9 +64,9 @@ Reference directly the fifo array.
 
 How many elements are in the array.
 
-=head2 C<max_size>
+=head2 C<limit>
 
-    $ar->max_size;
+    $ar->limit;
 
 The maximum size the array is allow to be.
 
@@ -98,7 +98,7 @@ L<http://www.perlfoundation.org/artistic_license_2_0>
 =cut
 
 
-has max_size => ( is => 'rw', isa => 'Int', default => -1 );
+has limit => ( is => 'rw', isa => 'Int', default => -1 );
 
 has queue => (
     is => 'rw',
@@ -113,9 +113,9 @@ has queue => (
     trigger => sub {
         my $self = shift;
 
-        if ($self->{max_size} > 0) {
+        if ($self->{limit} > 0) {
             my $array = $self->{queue};
-            while (@{ $array } > $self->{max_size}) {
+            while (@{ $array } > $self->{limit}) {
                 shift @{ $array };
             }
         }

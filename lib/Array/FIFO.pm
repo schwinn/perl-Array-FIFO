@@ -99,7 +99,6 @@ L<http://www.perlfoundation.org/artistic_license_2_0>
 
 
 has max_size => ( is => 'rw', isa => 'Int', default => -1 );
-has size => ( is => 'rw', isa => 'Int', default => 0 );
 
 has queue => (
     is => 'rw',
@@ -108,7 +107,8 @@ has queue => (
     default => sub { [ ] },
     handles => {
         add => 'push',
-        remove => 'shift'
+        remove => 'shift',
+        size => 'count',
     },
     trigger => sub {
         my $self = shift;
@@ -120,7 +120,7 @@ has queue => (
             }
         }
 
-        $self->size( scalar @{ $self->queue } );
+        my $size = $self->size;
 
         my $sum = 0;
         foreach my $q (@{ $self->queue }) {
@@ -131,7 +131,7 @@ has queue => (
 
         $self->sum( $sum );
         if ($sum > 0) {
-            $self->average( $sum / $self->size );
+            $self->average( $sum / $size );
         }
         else {
             $self->average(0);

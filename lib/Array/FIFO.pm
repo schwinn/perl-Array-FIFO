@@ -41,7 +41,7 @@ for very large arrays in most cases.
 
 =item C<limit> (optional)
 
-Numeric value of how large the array is allowd to get.  When it reaches 
+Numeric value of how large the array is allowed to get.  When it reaches 
 limit, every item added causes the oldest item to be removed.
 
 If no value is passed, there is no max size.

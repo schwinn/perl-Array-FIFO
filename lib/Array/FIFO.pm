@@ -21,9 +21,9 @@ Array::FIFO - A Simple limitable FIFO array, with sum and average methods
 
 =head1 DESCRIPTION
 
-Array::FIFO is meant to be a simple limitable FIFO array, for storing data in a FIFO
-manner, with an optional limit to how large the array can get.  When the limit is
-reached, the oldest value is discarded when new values are added.
+Array::FIFO is meant to be a simple limitable array, for storing data in a FIFO
+manner; with an optional limit to how large the array can get.  When the limit is
+reached, the oldest value is returned by C<add> when new values are added.
 
 It's intent is for numeric values (i.e. current load of a system), but it should work 
 for other data types if you're not in need of the calculation methods.
@@ -52,8 +52,10 @@ If no value is passed, there is no max size.
 
     $ar->add( 99 );
 
-You can add any type of item to the array; if it's not a number it will just
-not affect the sum() or average() calculations.
+You can add any type of item to the array; if it's not a number it will be
+treated as a value of 0 when when calculating sum() and average().
+
+Returns the oldest element in the array.
 
 =head2 C<remove>
 

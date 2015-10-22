@@ -28,7 +28,7 @@ reached, the oldest value is discarded when new values are added.
 It's intent is for numeric values (i.e. current load of a system), but it should work 
 for other data types.
 
-The C<<sum>> and C<<average>> methods keep the current sum and average of the numbers
+The C<sum> and C<average> methods keep the current sum and average of the numbers
 as you would expect.  It does this on the fly, so it's probably not performant enough 
 for very large arrays in most cases.
 

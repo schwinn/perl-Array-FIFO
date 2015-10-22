@@ -7,7 +7,7 @@ use namespace::autoclean;
 
 =head1 NAME
 
-Array::FIFO - Simple FIFO array, with a few convenience methods
+Array::FIFO - A Simple limitable FIFO array, with a few convenience methods to do crunch the data
 
 =head1 SYNOPSIS
 

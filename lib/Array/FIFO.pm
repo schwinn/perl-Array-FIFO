@@ -140,14 +140,14 @@ has queue => (
     );
 
 around add => sub {
-	my $orig = shift;
-	my $self = shift;
+    my $orig = shift;
+    my $self = shift;
 
-	my $last = $self->{queue}[0];
+    my $last = $self->{queue}[0];
 
-	$self->$orig( @_ );
+    $self->$orig( @_ );
 
-	$last;
+    $last;
 };
 
 has sum => ( is => 'rw', isa => 'Int' );

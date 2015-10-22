@@ -1,0 +1,9 @@
+
+0.02
+    - get 'size' from Array delegation
+    - return oldest element in array, useful if you need to know what 
+      gets deleted if the array is maxed 
+
+0.01
+    - Initial release
+

@@ -29,8 +29,7 @@ It's intent is for numeric values (i.e. current load of a system), but it should
 for other data types.
 
 The C<sum> and C<average> methods keep the current sum and average of the numbers
-as you would expect.  It does this on the fly, so it's probably not performant enough 
-for very large arrays in most cases.
+as you would expect.  It does this on demand.
 
 
 =head1 METHODS
@@ -130,17 +129,8 @@ has queue => (
             }
         }
 
-        my $size = $self->size;
-
-        my $sum = sum0( grep /^-?\d+\.?\d*$/, @{ $self->queue } );
-
-        $self->sum( $sum );
-        if ($sum > 0) {
-            $self->average( $sum / $size );
-        }
-        else {
-            $self->average(0);
-        }
+        $self->clear_average;
+        $self->clear_sum;
     },
     );
 
@@ -155,8 +145,28 @@ around add => sub {
     $last;
 };
 
-has sum => ( is => 'rw', isa => 'Int' );
-has average => ( is => 'rw', isa => 'Num' );
+has sum     => ( is => 'rw', isa => 'Int', clearer => 'clear_sum'    , lazy => 1, builder => '_build_sum' );
+has average => ( is => 'rw', isa => 'Num', clearer => 'clear_average', lazy => 1, builder => '_build_average' );
+
+
+sub _build_sum {
+    my $self = shift;
+
+    my $size = $self->size;
+
+    sum0( grep /^-?\d+\.?\d*$/, @{ $self->queue } );
+}
+
+
+sub _build_average {
+    my $self = shift;
+
+    my $sum = $self->sum;
+    my $size = $self->size;
+
+    $sum > 0 ? ($sum / $size) : 0;
+}
+
 
 
 __PACKAGE__->meta->make_immutable;

@@ -1,4 +1,7 @@
 
+0.07 - 2016/10/30
+    - defer average and sum calculations until needed
+
 0.06 - 2016/10/22
     - clarify wording in pod
 

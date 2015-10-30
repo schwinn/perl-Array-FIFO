@@ -6,7 +6,7 @@ Array::FIFO - A Simple limitable FIFO array, with some convenience methods to cr
 
 =head1 VERSION
 
-version 0.06
+version 0.07
 
 =head1 SYNOPSIS
 
@@ -27,8 +27,7 @@ It's intent is for numeric values (i.e. current load of a system), but it should
 for other data types.
 
 The C<sum> and C<average> methods keep the current sum and average of the numbers
-as you would expect.  It does this on the fly, so it's probably not performant enough 
-for very large arrays in most cases.
+as you would expect.  It does this on demand.
 
 
 =head1 METHODS

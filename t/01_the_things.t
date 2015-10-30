@@ -82,6 +82,12 @@ describe "Array::FIFO" => sub {
             is( $last, 4 );
         };
 
+        it "average resets as new entries are added" => sub {
+            is( $ar->average, 13 );
+            $ar->add( 22 );
+            is( $ar->average, 16 );
+        };
+
     };
 
     describe "no limit set" => sub {

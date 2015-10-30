@@ -8,7 +8,7 @@ use namespace::autoclean;
 
 =head1 NAME
 
-Array::FIFO - A Simple limitable FIFO array, with some convenience methods to crunch the data
+Array::FIFO - A Simple limitable FIFO array, with sum and average methods
 
 =head1 SYNOPSIS
 
@@ -26,7 +26,7 @@ manner, with an optional limit to how large the array can get.  When the limit i
 reached, the oldest value is discarded when new values are added.
 
 It's intent is for numeric values (i.e. current load of a system), but it should work 
-for other data types.
+for other data types if you're not in need of the calculation methods.
 
 The C<sum> and C<average> methods keep the current sum and average of the numbers
 as you would expect.  It does this on demand.

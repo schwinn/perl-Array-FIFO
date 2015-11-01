@@ -1,4 +1,7 @@
 
+0.10 - 2016/??/??
+    - removed unused call to 'size'
+
 0.09 - 2016/10/31
     - just updating pod for clarifications
 

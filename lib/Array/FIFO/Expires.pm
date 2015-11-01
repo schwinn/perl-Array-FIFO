@@ -8,11 +8,16 @@ use Array::FIFO::Data;
 
 has '+queue' => ( isa => 'ArrayRef[Array::FIFO]' );
 
-around add => sub {
-    my $orig = shift;
-    my $self = shift;
+has expires => ( is => 'rw', isa => 'Int', default => 0 );
 
-    my $last = $self->$orig( @_ );
+around add => sub {
+    my ($orig, $self, $value, $expires) = @_;
+
+    $expires //= $self->expires;
+
+    my $data = Array::FIFO::Data->new( value => $value, expires => $expires );
+
+    my $last = $self->$orig( $data );
 
     $last->value;
 };

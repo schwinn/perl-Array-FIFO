@@ -15,7 +15,8 @@ around add => sub {
 
     $expires //= $self->expires;
 
-    my $data = Array::FIFO::Data->new( value => $value, expires => $expires );
+    my $data = Array::FIFO::Data->new( value => $value, expires => $expires, array => $self );
+    my $w = AnyEvent->timer( after => $seconds, interval => $seconds,  );
 
     my $last = $self->$orig( $data );
 

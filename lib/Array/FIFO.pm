@@ -154,8 +154,6 @@ has average => ( is => 'rw', isa => 'Num', clearer => 'clear_average', lazy => 1
 sub _build_sum {
     my $self = shift;
 
-    my $size = $self->size;
-
     sum0( grep /^-?\d+\.?\d*$/, @{ $self->queue } );
 }
 

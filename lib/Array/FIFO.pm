@@ -28,8 +28,9 @@ reached, the oldest value is returned by C<add> when new values are added.
 It's intent is for numeric values (i.e. current load of a system), but it should work 
 for other data types if you're not in need of the calculation methods.
 
-The C<sum> and C<average> methods keep the current sum and average of the numbers
-as you would expect.  It does this on demand.
+The C<sum> and C<average> methods return the current sum and average of the 
+data as you would expect.  It does this on once, then caches the result until
+the array changes.
 
 
 =head1 METHODS

@@ -80,7 +80,7 @@ How many elements are in the array.
 
     $ar->limit;
 
-The maximum size the array is allow to be.
+The maximum size the array is allowed to be.
 
 =head2 C<sum>
 

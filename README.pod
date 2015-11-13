@@ -6,7 +6,7 @@ Array::FIFO - A Simple limitable FIFO array, with sum and average methods
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 
@@ -26,8 +26,9 @@ reached, the oldest value is returned by C<add> when new values are added.
 It's intent is for numeric values (i.e. current load of a system), but it should work 
 for other data types if you're not in need of the calculation methods.
 
-The C<sum> and C<average> methods keep the current sum and average of the numbers
-as you would expect.  It does this on demand.
+The C<sum> and C<average> methods return the current sum and average of the 
+data as you would expect.  It does this on once, then caches the result until
+the array changes.
 
 
 =head1 METHODS
@@ -77,7 +78,7 @@ How many elements are in the array.
 
     $ar->limit;
 
-The maximum size the array is allow to be.
+The maximum size the array is allowed to be.
 
 =head2 C<sum>
 

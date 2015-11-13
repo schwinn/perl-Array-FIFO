@@ -1,16 +1,16 @@
 
-0.10 - 2016/??/??
+0.10 - 2015/??/??
     - removed unused call to 'size'
     - update description for clarity
 
-0.09 - 2016/10/31
+0.09 - 2015/10/31
     - updating pod for clarity
 
-0.08 - 2016/10/30
+0.08 - 2015/10/30
     - defer average and sum calculations until needed
     - tweak pod
 
-0.06 - 2016/10/22
+0.06 - 2015/10/22
     - clarify wording in pod
 
 0.05 - 2015/10/22

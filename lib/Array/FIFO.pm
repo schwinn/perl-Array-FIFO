@@ -148,7 +148,7 @@ around add => sub {
     $last;
 };
 
-has sum     => ( is => 'rw', isa => 'Int', clearer => 'clear_sum'    , lazy => 1, builder => '_build_sum' );
+has sum     => ( is => 'rw', isa => 'Num', clearer => 'clear_sum'    , lazy => 1, builder => '_build_sum' );
 has average => ( is => 'rw', isa => 'Num', clearer => 'clear_average', lazy => 1, builder => '_build_average' );
 
 

@@ -165,7 +165,7 @@ sub _build_average {
     my $sum = $self->sum;
     my $size = $self->size;
 
-    $sum > 0 ? ($sum / $size) : 0;
+    $sum ? ($sum / $size) : 0;
 }
 
 
